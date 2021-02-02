@@ -1,0 +1,16 @@
+Even or Odd. Whch is greater??
+
+function evenOrOdd(str) {
+  let sumEven = 0
+  let sumOdd = 0
+  for(let i of str) {
+    if(i%2 === 0) {
+      sumEven += i*1
+    } else {
+      sumOdd += i*1
+    }    
+  }
+  if(sumEven > sumOdd) return "Even is greater than Odd"
+  else if(sumOdd > sumEven) return "Odd is greater than Even"
+  else return "Even and Odd are the same"
+}
