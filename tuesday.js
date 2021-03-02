@@ -1,34 +1,29 @@
-You've been collecting change all day, and it's starting to pile up in your pocket, but you're too lazy to see how much you've found.
-Good thing you can code!
+Given 2 strings, a and b, return a string of the form short+long+short, with the shorter string on the outside and the longer string on the inside. The strings will not be the same length, but they may be empty ( length 0 ).
 
-Create change_count() to return a dollar amount of how much change you have!
-Valid types of change include:
-
-penny: 0.01
-nickel: 0.05
-dime: 0.10
-quarter: 0.25
-dollar: 1.00
-These amounts are already preloaded as floats into the CHANGE object for you to use!
-You should return the total in the format $x.xx.
+//  Test.assertEquals(solution('45', '1'), '1451');
 
 
-// SOULTION 1
-function changeCount( change ){
-    let arr = change.split(" ")
-    let total = 0
-    for(i = 0; i < arr.length; i++) {
-      total += CHANGE[arr[i]]
+function solution(a, b){
+    //a & b are strings
+  //return a string in form : short + long + short
+    // shorter string on outside, longer on inside (45, 1) => 1+45+1 => 1451
+    ///have to check length of a & b
+    //string will not be same length. but may be empty => 0
+    if (a.length < b.length) {
+      return (a+b+a)
+    }else {
+      return (b+a+b)
     }
-    return "$" + total.toFixed(2)
+  
 }
 
 
-  //SOLUTION2
-function changeCount(change) {
-    let makeArr = change.split(" ")
-    let numberValues = makeArr.map(element => CHANGE[element])
-    let sumVal = numbersValues.reduce((acc, val) => acc + val, 0)
-    let result = `$${sumVal.toFixed(2)}`
-    return result
-}
+  //ternary operators
+
+  //basically an if statement written in a one-liner. returns first the right anwer and if not the false
+function solution(a, b){
+    return a.length < b.length ? a+b+a : b+a+b
+    
+    //return (if statement goes in here) ? (true answer!) : (else return the false answer)
+  }
+    
